@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css';
 
 interface FootballClub {
   id: number;
@@ -20,7 +21,8 @@ function useFootballClubs() {
         setClubs(response.data);
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error: Error) => {
+        console.error('Fetch error:', error);
         setError('Error fetching data');
         setLoading(false);
       });
@@ -99,7 +101,8 @@ function LocalDataComponent() {
 function App() {
   return (
     <div className="App">
-      <h1>Football Clubs</h1>
+      <h1>EnglishFootball Clubs</h1>
+      <p>or at least most of them</p>
       <FootballClubsTable />
       <LocalDataComponent />
     </div>
