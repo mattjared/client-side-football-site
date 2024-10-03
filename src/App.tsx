@@ -101,7 +101,7 @@ function LocalDataComponent() {
 function App() {
   return (
     <div className="App">
-      <h1>EnglishFootball Clubs</h1>
+      <h1>English Football Clubs</h1>
       <p>or at least most of them</p>
       <FootballClubsTable />
       <LocalDataComponent />

@@ -36,6 +36,11 @@
   background-color: #4B3F72;
 }
 
+.App table tr:nth-child(odd) {
+  background-color: #333;
+  color: white;
+}
+
 .App h1 {
   color: #9A90C8;
   margin-bottom: 0;
