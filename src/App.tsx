@@ -1,9 +1,8 @@
 'use client'
 import { FootballClubsTable } from './components/FootballClubTable'
 import { LocalDataComponent } from './components/LocalDataComponent'
-import { AdComponent } from './components/AdComponent'
 import Header from './components/Header'
-import { BannerAd } from './components/Ads'
+import { BannerAd, VideoAd } from './components/Ads'
 
 export default function App() {
   return (
@@ -19,10 +18,7 @@ export default function App() {
           <LocalDataComponent />
         </div>
         <div>
-          <AdComponent 
-            title="Premium Membership" 
-            content="Get access to exclusive content and features with our Premium Membership!" 
-          />
+          <VideoAd />
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { ShoppingBag } from "lucide-react"
 import { Button } from "./ui/button"
+import { Card, CardContent } from "./ui/card"
 
 export const BannerAd = () => (
   <div className="mb-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-lg shadow-md">
@@ -17,7 +18,7 @@ export const BannerAd = () => (
 </div>
   )
 
-const SponsorAd = () => (
+export const SponsorAd = () => (
   <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
     <div className="flex items-center justify-between">
       <img
@@ -30,7 +31,7 @@ const SponsorAd = () => (
   </div>
 )
 
-const FantasyAd = () => (
+export const FantasyAd = () => (
   <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-lg shadow-md mb-4">
     <h3 className="text-lg font-bold mb-2">Fantasy Premier League</h3>
     <p className="mb-4">Create your team now and compete with millions of players worldwide!</p>
@@ -40,28 +41,26 @@ const FantasyAd = () => (
   </div>
 )
 
-const VideoAd = () => (
-  <div className="relative bg-black rounded-lg shadow-md mb-4 overflow-hidden">
-    <img
-      src="/placeholder.svg?height=200&width=400"
-      alt="Video Thumbnail"
-      className="w-full h-auto"
-    />
-    <div className="absolute inset-0 flex items-center justify-center">
-      <Button variant="outline" className="bg-white text-black hover:bg-gray-200">
-        Watch Highlights
-      </Button>
-    </div>
+export const VideoAd = ({ src } : { src?: string}) => (
+  <div className="relative rounded-lg shadow-md mb-4">
+    <iframe
+      src={src || 'https://streamable.com/6cfvq6'}
+      allow='autoplay'
+      frameBorder='0'
+      sandbox='allow same origin'
+    >
+      Your browser does not support the video tag.
+    </iframe>
   </div>
 )
 
-export default function Ads() {
+export const BasicAd = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className="space-y-4">
-      <BannerAd />
-      <SponsorAd />
-      <FantasyAd />
-      <VideoAd />
-    </div>
+    <Card className="mb-4 bg-primary text-primary-foreground">
+      <CardContent className="p-4">
+        <h3 className="text-lg font-bold mb-2">{title}</h3>
+        <p>{content}</p>
+      </CardContent>
+    </Card>
   )
 }
