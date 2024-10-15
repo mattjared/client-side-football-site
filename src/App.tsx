@@ -3,6 +3,7 @@ import { FootballClubsTable } from './components/FootballClubTable'
 import { LocalDataComponent } from './components/LocalDataComponent'
 import { AdComponent } from './components/AdComponent'
 import Header from './components/Header'
+import { BannerAd } from './components/Ads'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <p className="text-muted-foreground mb-4">or at least most of them</p>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
         <div className="lg:col-span-3">
+          <BannerAd />
           <FootballClubsTable />
           <LocalDataComponent />
         </div>
@@ -20,10 +22,6 @@ export default function App() {
           <AdComponent 
             title="Premium Membership" 
             content="Get access to exclusive content and features with our Premium Membership!" 
-          />
-          <AdComponent 
-            title="Football Gear" 
-            content="Shop the latest football gear and support your favorite clubs!" 
           />
         </div>
       </div>

@@ -35,18 +35,21 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="w-full bg-gradient-to-r from-purple-800 to-purple-900 text-white">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <img className="h-8 w-auto" src="/placeholder.svg?height=32&width=96" alt="Premier League logo" />
+    <header className="w-full bg-blue-900 text-white shadow-lg">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <a href='/' className='flex items-center space-x-2'>
+                <img className="h-10 w-10 rounded-full" src="https://i.ibb.co/7kkTHMt/soccer-ball.jpg" alt="Premier League logo" />
+                <h1 className="text-xl font-bold hidden sm:block">
+                    The League
+                </h1>
+              </a>
             </div>
-            <nav className="hidden md:ml-6 md:flex md:space-x-1 lg:space-x-4">
+            <nav className="hidden md:flex space-x-4">
               {mainNavItems.map((item) => (
                 <div key={item.name} className="relative group">
                   <button
-                    className="px-2 py-1 rounded-md text-sm font-medium hover:bg-purple-700 transition duration-150 ease-in-out flex items-center"
+                    className="px-2 py-1 rounded-md text-sm font-medium hover:opacity-80 transition duration-150 ease-in-out flex items-center"
                     onMouseEnter={() => handleMouseEnter(item.name)}
                     onMouseLeave={handleMouseLeave}
                     onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
@@ -82,9 +85,8 @@ export default function Header() {
                 </div>
               ))}
             </nav>
-          </div>
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
-            <Button variant="outline" size="sm" className="text-white border-white bg-purple-700 hover:bg-purple-600">
+          <div className="hidden md:block">
+            <Button variant="outline" size="sm" className="text-white hover:text-whiteborder-white bg-blue-900 hover:bg-blue-800">
               Sign In
             </Button>
           </div>
@@ -94,13 +96,12 @@ export default function Header() {
             </Button>
           </div>
         </div>
-      </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-purple-900 fixed inset-0 z-50 overflow-y-auto">
+        <div className="md:hidden bg-blue-900 fixed inset-0 z-50 overflow-y-auto">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <div className="flex justify-between items-center mb-4">
-              <img className="h-8 w-auto" src="/placeholder.svg?height=32&width=96" alt="Premier League logo" />
+              <img className="h-10 w-10 rounded-full" src="https://i.ibb.co/7kkTHMt/soccer-ball.jpg" alt="Premier League logo" />
               <Button variant="ghost" onClick={() => setMobileMenuOpen(false)} className="text-white p-1">
                 <X className="h-6 w-6" />
               </Button>
@@ -108,7 +109,7 @@ export default function Header() {
             {mainNavItems.map((item) => (
               <div key={item.name} className="space-y-1">
                 <button
-                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-700 transition duration-150 ease-in-out flex items-center justify-between"
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-700 transition duration-150 ease-in-out flex items-center justify-between"
                   onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
                   aria-expanded={activeDropdown === item.name}
                   aria-haspopup="true"
@@ -124,7 +125,7 @@ export default function Header() {
                       <a
                         key={subitem}
                         href="#"
-                        className="block px-3 py-2 rounded-md text-base font-medium text-purple-200 hover:text-white hover:bg-purple-700 transition duration-150 ease-in-out"
+                        className="block px-3 py-2 rounded-md text-base font-medium text-blue-200 hover:text-white hover:bg-blue-700 transition duration-150 ease-in-out"
                       >
                         {subitem}
                       </a>
@@ -134,8 +135,8 @@ export default function Header() {
               </div>
             ))}
           </div>
-          <div className="pt-4 pb-3 border-t border-purple-700 px-4">
-            <Button variant="outline" className="w-full text-white border-white bg-purple-700 hover:bg-purple-600">
+          <div className="pt-4 pb-3 border-t border-blue-700 px-4">
+            <Button variant="outline" className="w-full text-white border-white bg-blue-900 hover:bg-blue-800">
               Sign In
             </Button>
           </div>
